@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
-:root {
-  --bg: #f5f0e8;
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-bg: #f5f0e8;
   --card: #ffffff;
 
   /* Texts, Buttons Bg CSS */
-  --ink: #0A0A0A;
+  --color-ink: #0A0A0A;
   --color-paper: #f5f0e8;
 
   /* Accent palette */
-  --yellow:           #ffe500;
-  --red:              #ff4d4d;
-  --blue:             #0057ff;
-  --purple:           #c957ff;
-  --orange:           #ff8c00;
-  --lime:             #b8ff57;
-  --teal:             #00c9a7;
-  --black:            #0a0a0a;
-  --white:            #ffffff;
+  --color-yellow:           #ffe500;
+  --color-red:              #ff4d4d;
+  --color-blue:             #0057ff;
+  --color-purple:           #c957ff;
+  --color-orange:           #ff8c00;
+  --color-lime:             #b8ff57;
+  --color-teal:             #00c9a7;
+  --color-black:            #0a0a0a;
+  --color-white:            #ffffff;
 
   /* Shadow CSS */
   --shadow-brutal: 4px 4px 0px #0a0a0a;
@@ -28,15 +29,15 @@
   --border-brutal: 2.5px solid #0a0a0a;
 
   /* MISC */
-  --googling-bg:  #0a0a0a;
+  --color-googling-bg:  #0a0a0a;
 }
 
 .dark {
-  --bg: #111111;
-  --card: #1c1c1c;
+  --color-bg: #111111;
+  --color-card: #1c1c1c;
 
   /* Texts, Buttons Bg CSS */
-  --ink: #f0ebe0;
+  --color-ink: #f0ebe0;
 
   /* Shadow CSS */
   --shadow-brutal: 4px 4px 0px #EFEBE1;
@@ -47,8 +48,36 @@
   --border-brutal: 2px solid #EFEBE1;
 
   /* MISC */
-  --googling-bg:  #2a2a2a;
+  --color-googling-bg:  #2a2a2a;
 }
+@layer base {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+  }
+}
+
+@layer base {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition::before,
+  .theme-transition::after,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke;
+
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
