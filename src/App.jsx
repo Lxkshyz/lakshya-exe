@@ -1,15 +1,10 @@
-import { useThemeContext } from "./hooks/useThemeContext.jsx";
-
+import Navigation from "./components/Navigation/Navigation.jsx";
 function App() {
-    const { toggleDarkMode } = useThemeContext();
-    function toggle() {
-        const root = document.documentElement;
-        root.classList.add("theme-transition");
-        toggleDarkMode();
-    }
+
   return (
       <>
-          <button onClick={toggle}>hello</button>
+          <div id="theme-overlay"></div>
+          <Navigation />
       </>
   )
 }

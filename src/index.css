@@ -1,81 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-@theme {
-  --color-bg: #f5f0e8;
-  --card: #ffffff;
+@custom-variant light (&:where(.light, .light *));
 
-  /* Texts, Buttons Bg CSS */
-  --color-ink: #0A0A0A;
-  --color-paper: #f5f0e8;
-
-  /* Accent palette */
-  --color-yellow:           #ffe500;
-  --color-red:              #ff4d4d;
-  --color-blue:             #0057ff;
-  --color-purple:           #c957ff;
-  --color-orange:           #ff8c00;
-  --color-lime:             #b8ff57;
-  --color-teal:             #00c9a7;
-  --color-black:            #0a0a0a;
-  --color-white:            #ffffff;
-
-  /* Shadow CSS */
-  --shadow-brutal: 4px 4px 0px #0a0a0a;
-  --shadow-brutal-lg: 6px 6px 0px #0a0a0a;
-  --shadow-brutal-xl: 8px 8px 0px #0a0a0a;
-
-  /* Border CSS */
-  --border-brutal: 2.5px solid #0a0a0a;
-
-  /* MISC */
-  --color-googling-bg:  #0a0a0a;
+.light {
+  --bg: #f5f0e8;
+  --invert-bg: #111111;
+  --card: #f5f0e8;
+  --text: #111111;
+  --border: #111111;
+  --shadow: #111111;
 }
 
 .dark {
-  --color-bg: #111111;
-  --color-card: #1c1c1c;
-
-  /* Texts, Buttons Bg CSS */
-  --color-ink: #f0ebe0;
-
-  /* Shadow CSS */
-  --shadow-brutal: 4px 4px 0px #EFEBE1;
-  --shadow-brutal-lg: 6px 6px 0px #EFEBE1;
-  --shadow-brutal-xl: 8px 8px 0px #EFEBE1;
-
-  /* Border CSS */
-  --border-brutal: 2px solid #EFEBE1;
-
-  /* MISC */
-  --color-googling-bg:  #2a2a2a;
-}
-@layer base {
-  *,
-  *::before,
-  *::after {
-    transition: none;
-  }
+  --bg:     #111111;
+  --invert-bg: #f5f0e8;
+  --card:   #1e1e1e;
+  --text:   #e8e3d9;
+  --border: #524e48;
+  --shadow: #b8b3ac;
 }
 
-@layer base {
-  .theme-transition,
-  .theme-transition *,
-  .theme-transition::before,
-  .theme-transition::after,
-  .theme-transition *::before,
-  .theme-transition *::after {
-    transition-property:
-            color,
-            background-color,
-            border-color,
-            text-decoration-color,
-            fill,
-            stroke;
+@theme {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-text: var(--text);
+  --color-border: var(--border);
+  --color-shadow: var(--shadow);
 
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-  }
+  --color-lime: #c8ff47;
+  --color-pink: #ff3cac;
+  --color-blue: #3c8dff;
+  --color-orange: #ff6b35;
+  --color-yellow: #ffe135;
+  --color-purple: #b07ef8;
+  --color-teal: #00f5d4;
+  --color-red: #ff4757;
+
+  --font-mono: "JetBrains Mono", monospace;
+  --font-outfit: "Outfit", sans-serif;
+  --font-archiveblack: "Archivo Black", sans-serif;
 }
 
 html, body {
@@ -84,4 +48,16 @@ html, body {
 }
 #div {
   height: 100%;
+}
+.no-transition *, .no-transition {
+  transition: none !important;
+}
+
+#theme-overlay {
+  position: fixed;
+  background-color: var(--invert-bg);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
 }
