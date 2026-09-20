@@ -54,3 +54,32 @@ html, body {
   left: 0;
   z-index: 1000;
 }
+
+.clock-digit {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.clock-digit-sizer {
+  visibility: hidden;
+  display: block;
+
+}
+
+.clock-digit-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.time-container {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05em;
+}
+
+::selection {
+  background-color: #111111;
+  color: white;
+}

@@ -18,7 +18,7 @@ function Hero(){
                 sectionExit(e)
                 heroExit()
             }}
-            ref={heroRef} className="flex flex-col gap-4 lg:gap-6 col-span-full bg-card border-4 border-border rounded-4xl p-8 md:p-10">
+            ref={heroRef} className=" section-box flex flex-col gap-4 lg:gap-6 col-span-full bg-card border-4 border-border rounded-4xl p-8 md:p-10">
             <h1 className="section-title hero-role mb-4.5 font-mono text-secondary-text font-thin text-sm md:text-md">FULL STACK DEVELOPER</h1>
             <h1 className="hero-title flex flex-col font-archiveblack font-bold text-4xl lg:text-5xl">
                 <span >HEY, I'm</span>

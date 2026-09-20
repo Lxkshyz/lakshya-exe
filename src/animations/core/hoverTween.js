@@ -1,20 +1,24 @@
 import gsap from "gsap";
+
 export function createHoverTweenController() {
     let tween = null;
-    tween?.kill()
     let generation = 0;
+
     const run = (target, vars = {}) => {
         const gen = ++generation;
-        const {onComplete, ...rest} = vars
-        gsap.to(target, {
+        tween?.kill();
+        const { onComplete, ...rest } = vars;
+        tween = gsap.to(target, {
             ...rest,
+            overwrite: "auto",
             onComplete: () => {
-                if (gen === generation) return
-                tween = null
-                onComplete?.()
-            }
-        })
-    }
+                if (gen !== generation) return;
+                tween = null;
+                onComplete?.();
+            },
+        });
+        return tween;
+    };
 
     const runTimeline = (build, vars = {}) => {
         const gen = ++generation;
